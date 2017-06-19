@@ -18,10 +18,20 @@
     if (shouldAdd500) {
         m -= 500;
     }
-    double max = 500;
+    double max = 1000;
     double min = 0;
 
     NSArray *VNMoneyType = @[@(10),@(20),@(50),@(100),@(200),@(500)];
+
+    if ([VNMoneyType containsObject:@(m)]) {
+        for (NSUInteger i = 0; i<VNMoneyType.count; i ++) {
+            if ([VNMoneyType[i] doubleValue] >= m) {
+                [potentialArray addObject:shouldAdd500? @([VNMoneyType[i] doubleValue] + 500): @([VNMoneyType[i] doubleValue]) ];
+            }
+        }
+        return potentialArray;
+    }
+
 
     //Tạm check cho trường hợp < 1,000,000 vnđ
 
@@ -45,13 +55,13 @@
     }
 
     //Tính các giá trị có thể được tạo thành tính từ min và các loại tiền
-
-    int tienle = (int)(min)%100;
-    double tienchan = min - tienle;
-
     if (min >= m) {
         min -= 10;
     }
+    int tienle = (int)(min)%100;
+    double tienchan = min - tienle;
+
+
 
 
     int i = 0;
@@ -61,7 +71,7 @@
             break;
         }
         double start = tienchan;
-        if (loaiTien < tienle) {
+        if (loaiTien <= tienle) {
             start = min;
         }
         double addValue;
@@ -80,7 +90,7 @@
                 //Kiểm tra nếu có 1 tờ tiền nào đó có mệnh giá lớn hơn min nhưng nhỏ hơn addValue thì không add giá trị đó vào nữa
                 for ( NSUInteger j = 0;  j < VNMoneyType.count; j++) {
                     double tien = [VNMoneyType[j] doubleValue];
-                    double loaiTienVuaAdd = [[potentialArray lastObject] doubleValue];
+                    double loaiTienVuaAdd = [[potentialArray firstObject] doubleValue];
                     double giaTriCheck = loaiTienVuaAdd;
                     if (loaiTienVuaAdd == 0) {
                         giaTriCheck = min + 10;
@@ -88,13 +98,13 @@
                     
                     //Kiểm tra nếu có tờ tiền có mệnh giá phù hợp và chưa add vào potentialArray thì sử dụng tờ tiền đó như addValue
                     if (tien >= giaTriCheck && tien < addValue && ![potentialArray containsObject:@(tien)]) {
-                        j--;
+//                        j--;
                         addValue = tien;
                         continue;
                     }
                     
                     
-                    if (tien >= giaTriCheck && tien <= addValue) {
+                    if (tien >= giaTriCheck && tien <= addValue && loaiTien == 50) {
                         shouldNotAdd = YES;
                     }
                 }
@@ -108,12 +118,6 @@
         i++;
     }
 
-
-
-
-    if (![potentialArray containsObject:@(max)]) {
-        [potentialArray addObject:@(max)];
-    }
     
     if (![potentialArray containsObject:@(m)]) {
         [potentialArray insertObject:@(m) atIndex:0];
