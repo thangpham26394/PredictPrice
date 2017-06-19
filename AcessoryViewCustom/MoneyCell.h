@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MoneyCell.h
 //  AcessoryViewCustom
 //
 //  Created by citigo on 6/17/17.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<UITextFieldDelegate>
-
+@interface MoneyCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
-

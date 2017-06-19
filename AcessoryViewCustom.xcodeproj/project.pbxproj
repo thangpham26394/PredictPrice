@@ -13,6 +13,11 @@
 		376461AD1EF50DDB00606CF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376461AB1EF50DDB00606CF1 /* Main.storyboard */; };
 		376461AF1EF50DDB00606CF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376461AE1EF50DDB00606CF1 /* Assets.xcassets */; };
 		376461B21EF50DDB00606CF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376461B01EF50DDB00606CF1 /* LaunchScreen.storyboard */; };
+		376461BB1EF50E9700606CF1 /* AccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 376461BA1EF50E9700606CF1 /* AccessoryView.m */; };
+		376461BD1EF50EB300606CF1 /* AccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376461BC1EF50EB300606CF1 /* AccessoryView.xib */; };
+		376461C11EF513FD00606CF1 /* MoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 376461BF1EF513FD00606CF1 /* MoneyCell.m */; };
+		376461C21EF513FD00606CF1 /* MoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376461C01EF513FD00606CF1 /* MoneyCell.xib */; };
+		376461C51EF51A2C00606CF1 /* AutoCorrectMoney.m in Sources */ = {isa = PBXBuildFile; fileRef = 376461C41EF51A2C00606CF1 /* AutoCorrectMoney.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,14 @@
 		376461AE1EF50DDB00606CF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		376461B11EF50DDB00606CF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		376461B31EF50DDB00606CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		376461B91EF50E9700606CF1 /* AccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryView.h; sourceTree = "<group>"; };
+		376461BA1EF50E9700606CF1 /* AccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryView.m; sourceTree = "<group>"; };
+		376461BC1EF50EB300606CF1 /* AccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccessoryView.xib; sourceTree = "<group>"; };
+		376461BE1EF513FD00606CF1 /* MoneyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCell.h; sourceTree = "<group>"; };
+		376461BF1EF513FD00606CF1 /* MoneyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCell.m; sourceTree = "<group>"; };
+		376461C01EF513FD00606CF1 /* MoneyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoneyCell.xib; sourceTree = "<group>"; };
+		376461C31EF51A2C00606CF1 /* AutoCorrectMoney.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCorrectMoney.h; sourceTree = "<group>"; };
+		376461C41EF51A2C00606CF1 /* AutoCorrectMoney.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCorrectMoney.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +75,14 @@
 				376461A61EF50DDB00606CF1 /* AppDelegate.m */,
 				376461A81EF50DDB00606CF1 /* ViewController.h */,
 				376461A91EF50DDB00606CF1 /* ViewController.m */,
+				376461BE1EF513FD00606CF1 /* MoneyCell.h */,
+				376461BF1EF513FD00606CF1 /* MoneyCell.m */,
+				376461C31EF51A2C00606CF1 /* AutoCorrectMoney.h */,
+				376461C41EF51A2C00606CF1 /* AutoCorrectMoney.m */,
+				376461C01EF513FD00606CF1 /* MoneyCell.xib */,
+				376461B91EF50E9700606CF1 /* AccessoryView.h */,
+				376461BA1EF50E9700606CF1 /* AccessoryView.m */,
+				376461BC1EF50EB300606CF1 /* AccessoryView.xib */,
 				376461AB1EF50DDB00606CF1 /* Main.storyboard */,
 				376461AE1EF50DDB00606CF1 /* Assets.xcassets */,
 				376461B01EF50DDB00606CF1 /* LaunchScreen.storyboard */,
@@ -139,6 +160,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				376461B21EF50DDB00606CF1 /* LaunchScreen.storyboard in Resources */,
+				376461C21EF513FD00606CF1 /* MoneyCell.xib in Resources */,
+				376461BD1EF50EB300606CF1 /* AccessoryView.xib in Resources */,
 				376461AF1EF50DDB00606CF1 /* Assets.xcassets in Resources */,
 				376461AD1EF50DDB00606CF1 /* Main.storyboard in Resources */,
 			);
@@ -152,7 +175,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				376461AA1EF50DDB00606CF1 /* ViewController.m in Sources */,
+				376461BB1EF50E9700606CF1 /* AccessoryView.m in Sources */,
 				376461A71EF50DDB00606CF1 /* AppDelegate.m in Sources */,
+				376461C11EF513FD00606CF1 /* MoneyCell.m in Sources */,
+				376461C51EF51A2C00606CF1 /* AutoCorrectMoney.m in Sources */,
 				376461A41EF50DDB00606CF1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
