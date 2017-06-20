@@ -22,7 +22,7 @@
     [super viewDidLoad];
     self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
     // Do any additional setup after loading the view, typically from a nib.
-    self.customView = [[AccessoryView alloc] initWithFrame:CGRectMake(0, 200, [[UIScreen mainScreen] bounds].size.width, 70)];
+    self.customView = [[AccessoryView alloc] init];
     self.customView.potentialValues = self.potentialValues;
     self.textField.inputAccessoryView = self.customView;
     [self.textField setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];

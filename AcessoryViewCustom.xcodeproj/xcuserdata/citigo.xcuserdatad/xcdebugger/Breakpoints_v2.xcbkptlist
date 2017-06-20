@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AcessoryViewCustom/AutoCorrectMoney.m"
-            timestampString = "519622203.645878"
+            timestampString = "519622489.087196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "+potentialMoneyWith:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AcessoryViewCustom/AutoCorrectMoney.m"
-            timestampString = "519622203.645878"
+            timestampString = "519622489.087196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "+potentialMoneyWith:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AcessoryViewCustom/AutoCorrectMoney.m"
-            timestampString = "519622203.645878"
+            timestampString = "519622489.087196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "+potentialMoneyWith:"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AcessoryViewCustom/AutoCorrectMoney.m"
-            timestampString = "519622203.645878"
+            timestampString = "519622489.087196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "+potentialMoneyWith:"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AcessoryViewCustom/AutoCorrectMoney.m"
-            timestampString = "519620985.982521"
+            timestampString = "519622489.087196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "+potentialMoneyWith:"
             landmarkType = "7">
          </BreakpointContent>

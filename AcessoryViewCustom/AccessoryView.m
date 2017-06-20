@@ -11,16 +11,14 @@
 
 @implementation AccessoryView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+- (instancetype)init {
+    self = [super init];
     if (self) {
         self = [[[UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil] instantiateWithOwner:self options:nil] objectAtIndex:0];
     }
-    self.frame = frame;
-    
     UINib *cellNib = [UINib nibWithNibName:@"MoneyCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"MoneyCell"];
-    
+    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 40)];
     return self;
 }
 
@@ -39,11 +37,11 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(90, 50);
+    return CGSizeMake(80, 30);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(10 , 10, 10, 10);
+    return UIEdgeInsetsMake(5 , 10, 5, 10);
 }
 
 @end
