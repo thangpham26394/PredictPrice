@@ -10,7 +10,7 @@
 #import "AccessoryView.h"
 #import "AutoCorrectMoney.h"
 
-@interface ViewController ()
+@interface ViewController ()<AccessoryViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UITextField *suggestTextField;
 
@@ -28,6 +28,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.customView = [[AccessoryView alloc] init];
     self.suggestView = [[AccessoryView alloc] init];
+    self.suggestView.delegate = self;
     self.customView.potentialValues = self.potentialValues;
     self.textField.inputAccessoryView = self.customView;
     self.suggestTextField.inputAccessoryView = self.suggestView;
@@ -85,6 +86,10 @@
         self.suggestTextField.inputAccessoryView = self.suggestView;
     });
     
+}
+
+- (void)didSelecteValue:(double)value {
+    self.suggestTextField.text = [NSString stringWithFormat:@"%.0f",value];
 }
 
 - (IBAction)hideKeyboard:(id)sender {

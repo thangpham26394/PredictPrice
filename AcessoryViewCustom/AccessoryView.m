@@ -44,4 +44,10 @@
     return UIEdgeInsetsMake(5 , 10, 5, 10);
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelecteValue:)]) {
+        [self.delegate didSelecteValue:[self.potentialValues[indexPath.row] doubleValue]];
+    }
+}
+
 @end
