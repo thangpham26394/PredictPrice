@@ -23,6 +23,9 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7W-zx-dbg">
                                 <rect key="frame" x="30" y="153" width="315" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="315" id="JoJ-r2-5vS"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -37,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h6-EL-gWz">
-                                <rect key="frame" x="130" y="191" width="115" height="33"/>
+                                <rect key="frame" x="130" y="105" width="115" height="33"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Hide">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -46,22 +49,32 @@
                                     <action selector="hideKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZhN-CX-PSn"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1jC-Gf-7kY">
+                                <rect key="frame" x="30" y="191" width="315" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4h6-EL-gWz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="130" id="BwK-WO-CcQ"/>
-                            <constraint firstItem="4h6-EL-gWz" firstAttribute="top" secondItem="G7W-zx-dbg" secondAttribute="bottom" constant="8" id="EdQ-Vi-hnK"/>
+                            <constraint firstItem="1jC-Gf-7kY" firstAttribute="leading" secondItem="G7W-zx-dbg" secondAttribute="leading" id="I0M-eQ-rex"/>
                             <constraint firstItem="G7W-zx-dbg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QoV-FG-NLC"/>
                             <constraint firstAttribute="trailing" secondItem="UX1-f7-bvN" secondAttribute="trailing" id="Smq-bz-2ZB"/>
                             <constraint firstItem="UX1-f7-bvN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZJa-aW-LxE"/>
+                            <constraint firstItem="1jC-Gf-7kY" firstAttribute="top" secondItem="G7W-zx-dbg" secondAttribute="bottom" constant="10" id="d5n-5m-FOK"/>
                             <constraint firstItem="G7W-zx-dbg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="dE1-wX-SUw"/>
+                            <constraint firstItem="G7W-zx-dbg" firstAttribute="top" secondItem="4h6-EL-gWz" secondAttribute="bottom" constant="15" id="fqL-Up-vWG"/>
                             <constraint firstItem="G7W-zx-dbg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="133" id="hbG-9S-DTy"/>
                             <constraint firstItem="UX1-f7-bvN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hsd-dm-nEU"/>
+                            <constraint firstItem="1jC-Gf-7kY" firstAttribute="width" secondItem="G7W-zx-dbg" secondAttribute="width" id="pnR-Z9-4qh"/>
                             <constraint firstItem="G7W-zx-dbg" firstAttribute="top" secondItem="UX1-f7-bvN" secondAttribute="bottom" id="ptU-3n-C3G"/>
                             <constraint firstAttribute="trailing" secondItem="4h6-EL-gWz" secondAttribute="trailing" constant="130" id="u52-of-Rma"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="suggestTextField" destination="1jC-Gf-7kY" id="OfU-3I-FIt"/>
                         <outlet property="textField" destination="G7W-zx-dbg" id="s40-Wh-aZR"/>
                     </connections>
                 </viewController>
