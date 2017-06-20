@@ -56,6 +56,11 @@
         self.textField.inputAccessoryView = self.customView;
     });
     
+    self.suggestView.potentialValues  = [[NSArray alloc] init];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.suggestView.collectionView reloadData];
+        self.suggestTextField.inputAccessoryView = self.suggestView;
+    });
 }
 
 - (void)onSuggestTextFieldChanged {
