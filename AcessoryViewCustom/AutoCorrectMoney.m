@@ -10,30 +10,28 @@
 
 @implementation AutoCorrectMoney
 
-
 + (NSArray *)potentialMoneyWith:(double)money {
+    
     NSMutableArray *potentialArray = [[NSMutableArray alloc] init];
-    double m = money; // money/1000
+    double m = money;
+    int tienTrieu = 0;
+    
+    //Check trường hợp tiền lớn hơn 1 tr
+    if (money > 1000) {
+        m = (int)money % 1000;
+        tienTrieu = money - m;
+        money = m;
+    }
+    //Check trường hợp tiền <sau khi loại hàng triệu nếu có> vẫn lớn hơn 500k thì trừ 500k để tính cho dễ
     BOOL shouldAdd500 = money > 500;
     if (shouldAdd500) {
         m -= 500;
     }
     double max = 1000;
     double min = 0;
-
+    
+    //Mảng chứa các loại tiền của VN vs mệnh giá từ 10k trở lên
     NSArray *VNMoneyType = @[@(10),@(20),@(50),@(100),@(200),@(500)];
-
-    if ([VNMoneyType containsObject:@(m)]) {
-        for (NSUInteger i = 0; i<VNMoneyType.count; i ++) {
-            if ([VNMoneyType[i] doubleValue] >= m) {
-                [potentialArray addObject:shouldAdd500? @([VNMoneyType[i] doubleValue] + 500): @([VNMoneyType[i] doubleValue]) ];
-            }
-        }
-        return potentialArray;
-    }
-
-
-    //Tạm check cho trường hợp < 1,000,000 vnđ
 
     //Tìm min và max cho khoảng tiền dự đoán
     for (NSUInteger index = VNMoneyType.count; index >= 1; index --) {
@@ -81,30 +79,37 @@
             addValue = start + loaiTien;
         }
 
-
+        //Check nếu giá trị addValue chưa được add vào
         if (![potentialArray containsObject:@(addValue)]) {
+            //Nếu giá trị addValue là 1 loại tiền thì add no vào luôn
             if ([VNMoneyType containsObject:@(addValue)]) {
                 [potentialArray addObject:@(addValue)];
             } else {
                 BOOL shouldNotAdd = NO;
-                //Kiểm tra nếu có 1 tờ tiền nào đó có mệnh giá lớn hơn min nhưng nhỏ hơn addValue thì không add giá trị đó vào nữa
+                //Kiểm tra có nên add giá trị đang dự đoán vào potentialArray ko
                 for ( NSUInteger j = 0;  j < VNMoneyType.count; j++) {
+                    //Loại tiền đang xét trong mảng các loại tiền của VN
                     double tien = [VNMoneyType[j] doubleValue];
+                    //Giá trị tiền nhỏ nhất thoả mãn đã được add vào potentialArray
                     double loaiTienVuaAdd = [[potentialArray firstObject] doubleValue];
+                    //Giá trị dùng để kiểm tra tiền đang dự đoán có phù hợp hay không
                     double giaTriCheck = loaiTienVuaAdd;
+
                     if (loaiTienVuaAdd == 0) {
                         giaTriCheck = min + 10;
                     }
                     
                     //Kiểm tra nếu có tờ tiền có mệnh giá phù hợp và chưa add vào potentialArray thì sử dụng tờ tiền đó như addValue
                     if (tien >= giaTriCheck && tien < addValue && ![potentialArray containsObject:@(tien)]) {
-//                        j--;
                         addValue = tien;
                         continue;
                     }
                     
-                    
-                    if (tien >= giaTriCheck && tien <= addValue && loaiTien == 50) {
+                    /*
+                     *Trường hợp đặc biệt nếu tiền khởi điểm không phải tiền chẵn và giá trị cộng thêm = 50k thì loại < vì nó có thể chỉ cần cộng thêm 10k hoặc 20k>
+                     *Tiền khởi điểm phải chẵn thì mới được tính case cộng thêm 50k vì khi đó không thể có lựa chọn vứt bớt tờ tiền lẻ nào khác nữa
+                     */
+                    if (start != tienchan && loaiTien == 50) {
                         shouldNotAdd = YES;
                     }
                 }
@@ -113,16 +118,16 @@
                 }
             }
         }
-
-
         i++;
     }
-
     
+    
+    //Add giá trị tiền mặc định cần thanh toán
     if (![potentialArray containsObject:@(m)]) {
         [potentialArray insertObject:@(m) atIndex:0];
     }
-
+    
+    //Check nếu số tiền tính lúc trước đã trừ bớt 500k < do lớn hơn 500k > thì cộng bù vào
     if (shouldAdd500) {
         for (int i=0; i<potentialArray.count; i ++) {
             double newValue = [potentialArray[i] doubleValue] + 500;
@@ -130,9 +135,15 @@
         }
     }
     
+    //Check nếu tiền nhập ban đầu lớn hơn 1 triệu
+    if (tienTrieu > 0) {
+        for (int i=0; i<potentialArray.count; i ++) {
+            double newValue = [potentialArray[i] doubleValue] + tienTrieu;
+            [potentialArray replaceObjectAtIndex:i withObject:@(newValue)];
+        }
+    }
+    
     return potentialArray;
 }
-
-
 
 @end
